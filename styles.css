@@ -2,12 +2,17 @@ body {
     background-color: hsl(235, 18%, 26%);
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
 main h1 {
@@ -17,10 +22,6 @@ main h1 {
     margin: 0;
 }
 
-.sign-up-form h1{
-    text-align: center;
-}
-
 main p {
     color: hsl(234, 29%, 20%);
     margin-bottom: 25px;
@@ -28,7 +29,8 @@ main p {
 
 .sign-up-body {
     background-color: white;
-    width: 925px;
+    width: 100%;
+    max-width: 925px;
     height: 650px;
     box-sizing: border-box;
     border-radius: 30px;
@@ -36,13 +38,10 @@ main p {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-flow: wrap;
 }
 
-
-
 .sign-up-box {
-    
+
     height: 100%;
     flex-grow: 1;
     display: flex;
@@ -50,25 +49,54 @@ main p {
     align-items: center;
 }
 
-.sign-up-box img {
-    display: inline-block;
+
+
+@media (max-width: 750px) {
+    main{
+        justify-content: start;
+    }
+
+    .sign-up-body{
+        border-radius: 0;
+        padding: 0;
+        /* min-height: 100%; */
+        height: 100%;
+        flex-flow: wrap;
+        justify-content: center;
+    }
+    .sign-up-box{
+        order: 2;
+    }
+    .sign-up-body picture {
+        order: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    .sign-up-box{
+        width: 100%;
+    }
+    .sign-up-body picture {
+        width: 100%;
+    }
 }
 
 .sign-up-form {
     width: 375px;
+    padding: 10px;
 }
 
-.sign-up-form ul{
+.sign-up-form ul {
     list-style-image: url(./assets/images/icon-list.svg);
     -webkit-padding-start: 30px;
 }
 
-.sign-up-form li{
+.sign-up-form li {
     padding-left: 10px;
     margin-bottom: 10px;
 }
 
-.email-label-box{
+.email-label-box {
     margin-top: 25px;
     padding: 10px 0;
     display: flex;
@@ -76,25 +104,30 @@ main p {
     justify-content: space-between;
 }
 
-.email-label-box label, .email-label-box #email-error-label{
+.email-label-box label,
+.email-label-box #email-error-label {
     font-size: 12px;
     font-weight: bold;
 }
 
-.email-label-box #email-error-label{
+.email-label-box #email-error-label {
     color: #DC8A8C;
     display: inline-block;
     display: none;
 }
 
-.email-label-box #email-error-label{
+.email-label-box #email-error-label {
     color: #DC8A8C;
     display: inline-block;
     display: none;
 }
 
-.email-label-box #email-error-label.email-error{
+.email-label-box #email-error-label.email-error {
     display: inline-block;
+}
+
+.sign-up-form h1 {
+    text-align: center;
 }
 
 .sign-up-form #email-input {
@@ -108,23 +141,24 @@ main p {
     font-family: inherit;
     font-weight: 400;
     margin-bottom: 25px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .sign-up-form #email-input:focus-visible {
     border: 2px solid black;
 }
 
-.sign-up-form #email-input.email-error{
+.sign-up-form #email-input.email-error {
     background-color: #FFE8E6;
     border-color: #DC8A8C;
 }
 
-.sign-up-form #email-input.email-error::placeholder{
+.sign-up-form #email-input.email-error::placeholder {
     color: #DC8A8C;
 }
 
-.sign-up-form #sign-up-button, #popup-content #close-popup-button {
+.sign-up-form #sign-up-button,
+#popup-content #close-popup-button {
     border-width: 0;
     width: 100%;
     background-color: hsl(234, 29%, 20%);
@@ -139,18 +173,19 @@ main p {
     border-radius: 10px;
 }
 
-.sign-up-form #sign-up-button:hover, #popup-content #close-popup-button:hover {
-    background-image: linear-gradient(to right, #FB557B , hsl(4, 100%, 67%));
+.sign-up-form #sign-up-button:hover,
+#popup-content #close-popup-button:hover {
+    background-image: linear-gradient(to right, #FB557B, hsl(4, 100%, 67%));
     cursor: pointer;
     box-shadow: 0 5px 15px -3px hsl(4, 100%, 67%);
 }
 
-#sign-up-popup{
+#sign-up-popup {
     display: none;
     background-color: hsl(234, 29%, 20%);
 }
 
-#sign-up-popup.email-success{
+#sign-up-popup.email-success {
     display: block;
     position: fixed;
     top: 0;
@@ -163,25 +198,45 @@ main p {
     align-items: center;
 }
 
-#popup-content{
+#popup-content {
     background-color: white;
     border-radius: 30px;
-    width: 510px;
+    width: 100%;
+    max-width: 510px;
     height: 520px;
     padding: 60px;
     box-sizing: border-box;
 }
 
-#popup-content .confirmation-text-box{
-    margin: 30px 0;
+@media (max-width: 510px) {
+    #popup-content{
+        border-radius: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .confirmation-text-box{
+        margin-top: 75px;
+    }
+    #sign-up-button{
+        margin: 30px 0;
+    }
 }
 
-#popup-content #user-email-span{
+#popup-content .confirmation-text-box img {
+    margin: 0 0 30px 0;
+}
+
+#popup-content #user-email-span {
     font-weight: bold;
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 0;
-    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: white;
 }

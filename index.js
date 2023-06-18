@@ -20,6 +20,7 @@ signUpButton.addEventListener('click', function() {
     // Email validation successful, add the success class to the popup body
     signUpPopup.classList.add('email-success');
     userEmailSpan.innerText = email;
+    emailInput.value = "";
   }
 });
 

@@ -51,15 +51,20 @@
           <button id="sign-up-button">Subscribe to monthly newsletter</button>
         </div>
       </div>
-      <img src="./assets/images/illustration-sign-up-desktop.svg" alt="sign up illustration">
+      <picture>
+        <source media="(max-width: 750px)" srcset="./assets/images/illustration-sign-up-mobile.svg">
+        <source media="(min-width: 751px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+        <img src="./assets/images/illustration-sign-up-desktop.svg" alt="sign up illustration">
+      </picture>
     </section>
     <!-- Sign-up form end -->
 
     <!-- Success message start -->
     <section id="sign-up-popup">
       <div id="popup-content">
-        <img src="./assets/images/icon-success.svg" alt="success icon">
+        
         <div class="confirmation-text-box">
+          <img src="./assets/images/icon-success.svg" alt="success icon">
           <h1>Thanks for subscribing!</h1>
 
           <p>A confirmation email has been sent to <span id="user-email-span"></span>.
@@ -74,7 +79,7 @@
   </main>
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Elbert Thomas</a>.
   </footer>
   <script src="index.js"></script>
 
